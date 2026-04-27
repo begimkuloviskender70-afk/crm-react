@@ -47,7 +47,6 @@ function UserForm({ initialUser, submitLabel, submitting, error, onSubmit }) {
   }
 
   function validateForm() {
-    // Basic form validation.
     const nextErrors = {};
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
