@@ -7,8 +7,8 @@ function Sidebar() {
       <h1>Mini CRM</h1>
 
       <nav>
-        <NavLink to="/users">Пользователи</NavLink>
-        <NavLink to="/add">Добавить</NavLink>
+        <NavLink to="/users">Users</NavLink>
+        <NavLink to="/add">Add user</NavLink>
       </nav>
     </aside>
   );

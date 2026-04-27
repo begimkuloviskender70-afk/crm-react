@@ -1,6 +1,7 @@
 import "./UserProfilePage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { deleteUser, getUserById } from "../../services/usersApi";
 
 function UserProfilePage() {
@@ -20,7 +21,9 @@ function UserProfilePage() {
         const loadedUser = await getUserById(id);
         setUser(loadedUser);
       } catch (err) {
-        setError(err.message || "Could not load user");
+        const message = err.message || "Could not load user";
+        setError(message);
+        toast.error(message);
       } finally {
         setLoading(false);
       }
@@ -39,9 +42,12 @@ function UserProfilePage() {
     try {
       setDeleting(true);
       await deleteUser(id);
+      toast.success("User deleted");
       navigate("/users");
     } catch (err) {
-      setError(err.message || "Could not delete user");
+      const message = err.message || "Could not delete user";
+      setError(message);
+      toast.error(message);
       setDeleting(false);
     }
   }
@@ -65,6 +71,13 @@ function UserProfilePage() {
       {!loading && !error && user && (
         <>
           <div className="profile-card">
+            <div className="profile-photo-card">
+              <img
+                src={user.image}
+                alt={`${user.firstName} ${user.lastName}`}
+              />
+            </div>
+
             <div>
               <span>Name</span>
               <strong>

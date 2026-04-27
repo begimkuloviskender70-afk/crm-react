@@ -1,49 +1,87 @@
 .table-wrapper {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  background: #fffdf8;
+  border: 2px solid #1c1917;
 }
 
 .table {
   width: 100%;
   min-width: 1040px;
-  background: white;
+  background: #fffdf8;
   border-collapse: collapse;
 }
 
 .table th,
 .table td {
-  padding: 12px;
-  border-bottom: 1px solid wheat;
+  padding: 14px 13px;
+  border-bottom: 2px solid #d6d3d1;
   text-align: left;
+  vertical-align: middle;
+}
+
+.table th {
+  color: #1c1917;
+  background: #e7e0d4;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.table tbody tr:hover {
+  background: #f5efe4;
 }
 
 .empty-message {
-  margin-top: 20px;
-  padding: 16px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  margin-top: 18px;
+  padding: 14px;
+  background: #fffdf8;
+  border: 2px solid #1c1917;
 }
 
 .table-actions {
   display: flex;
   gap: 8px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .table-actions a,
 .table-actions button {
-  padding: 8px 10px;
-  color: #ffffff;
-  background: #2563eb;
-  border: 0;
-  border-radius: 8px;
+  width: 64px;
+  min-height: 33px;
+  padding: 8px 9px;
+  color: #fffdf8;
+  background: #1c1917;
+  border: 2px solid #1c1917;
   font: inherit;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
 }
 
+.table-actions a:first-child {
+  color: #1c1917;
+  background: #facc15;
+}
+
+.table-actions a:hover,
+.table-actions button:hover {
+  color: #1c1917;
+  background: #facc15;
+  border-color: #1c1917;
+}
+
 .table-actions button {
-  background: #dc2626;
+  background: #991b1b;
+  border-color: #991b1b;
+}
+
+@media (max-width: 640px) {
+  .table {
+    min-width: 760px;
+  }
 }

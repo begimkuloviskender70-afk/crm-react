@@ -1,12 +1,20 @@
 .app {
-  display: flex;
   min-height: 100vh;
 }
 
 .main {
-  flex: 1;
+  min-width: 0;
 }
 
 .content {
-  padding: 30px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+}
+
+@media (max-width: 720px) {
+  .content {
+    padding: 26px 16px 42px;
+  }
 }

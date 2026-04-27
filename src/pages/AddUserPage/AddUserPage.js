@@ -1,6 +1,7 @@
 import "./AddUserPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import UserForm from "../../components/UserForm/UserForm";
 import { addUser } from "../../services/usersApi";
 
@@ -14,9 +15,12 @@ function AddUserPage() {
       setSubmitting(true);
       setError("");
       await addUser(user);
+      toast.success("User added");
       navigate("/users");
     } catch (err) {
-      setError(err.message || "Could not add user");
+      const message = err.message || "Could not add user";
+      setError(message);
+      toast.error(message);
     } finally {
       setSubmitting(false);
     }

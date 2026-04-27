@@ -1,6 +1,7 @@
 import "./UsersPage.css";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import UserTable from "../../components/UserTable/UserTable";
 import { deleteUser, getUsers } from "../../services/usersApi";
 
@@ -30,7 +31,9 @@ function UsersPage() {
         const loadedUsers = await getUsers();
         setUsers(loadedUsers);
       } catch (err) {
-        setError(err.message || "Something went wrong");
+        const message = err.message || "Something went wrong";
+        setError(message);
+        toast.error(message);
       } finally {
         setLoading(false);
       }
@@ -98,8 +101,9 @@ function UsersPage() {
       setUsers((currentUsers) =>
         currentUsers.filter((user) => user.id !== userId)
       );
+      toast.success("User deleted");
     } catch (err) {
-      window.alert(err.message || "Could not delete user");
+      toast.error(err.message || "Could not delete user");
     }
   }
 

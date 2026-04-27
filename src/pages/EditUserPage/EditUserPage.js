@@ -1,6 +1,7 @@
 import "./EditUserPage.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import UserForm from "../../components/UserForm/UserForm";
 import { getUserById, updateUser } from "../../services/usersApi";
 
@@ -21,7 +22,9 @@ function EditUserPage() {
         const loadedUser = await getUserById(id);
         setUser(loadedUser);
       } catch (err) {
-        setError(err.message || "Could not load user");
+        const message = err.message || "Could not load user";
+        setError(message);
+        toast.error(message);
       } finally {
         setLoading(false);
       }
@@ -36,9 +39,12 @@ function EditUserPage() {
       setError("");
 
       await updateUser(id, updatedUser);
+      toast.success("User updated");
       navigate(`/users/${id}`);
     } catch (err) {
-      setError(err.message || "Could not update user");
+      const message = err.message || "Could not update user";
+      setError(message);
+      toast.error(message);
       setSubmitting(false);
     }
   }

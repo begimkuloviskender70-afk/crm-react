@@ -1,9 +1,5 @@
 function Header() {
-  return (
-    <header className="header">
-      <h2>Mini CRM</h2>
-    </header>
-  );
+  return <header className="header" />;
 }
 
 export default Header;
