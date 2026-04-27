@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { deleteUser, getUserById } from "../../services/usersApi";
 
 function UserProfilePage() {
-  // Get id from URL.
   const { id } = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -18,7 +17,6 @@ function UserProfilePage() {
         setLoading(true);
         setError("");
 
-        // Fetch user data.
         const loadedUser = await getUserById(id);
         setUser(loadedUser);
       } catch (err) {
