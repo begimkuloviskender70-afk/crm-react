@@ -22,7 +22,6 @@ export async function getUserById(id) {
 }
 
 export async function addUser(user) {
-  // DummyJSON simulates POST and does not save changes permanently.
   const response = await fetch(`${API_URL}/add`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -37,7 +36,6 @@ export async function addUser(user) {
 }
 
 export async function updateUser(id, user) {
-  // DummyJSON simulates PUT and does not save changes permanently.
   const response = await fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -52,7 +50,6 @@ export async function updateUser(id, user) {
 }
 
 export async function deleteUser(id) {
-  // DummyJSON simulates DELETE and does not save changes permanently.
   const response = await fetch(`${API_URL}/${id}`, {
     method: "DELETE",
   });
