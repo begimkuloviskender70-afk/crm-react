@@ -5,7 +5,6 @@ import UserForm from "../../components/UserForm/UserForm";
 import { getUserById, updateUser } from "../../services/usersApi";
 
 function EditUserPage() {
-  // Get id from URL.
   const { id } = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -19,7 +18,6 @@ function EditUserPage() {
         setLoading(true);
         setError("");
 
-        // Fetch user data for the form.
         const loadedUser = await getUserById(id);
         setUser(loadedUser);
       } catch (err) {
@@ -38,7 +36,6 @@ function EditUserPage() {
       setError("");
 
       await updateUser(id, updatedUser);
-      // Redirect after save.
       navigate(`/users/${id}`);
     } catch (err) {
       setError(err.message || "Could not update user");
