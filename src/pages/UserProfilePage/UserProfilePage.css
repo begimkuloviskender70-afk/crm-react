@@ -1,15 +1,57 @@
-.card {
+.profile-page {
+  width: 100%;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 16px;
   background: white;
   padding: 20px;
-  border-radius: 12px;
-  max-width: 400px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
   margin: 20px 0;
 }
 
-.button-link {
-  display: inline-block;
-  padding: 10px 14px;
-  background: rgb(102, 102, 226);
-  color: white;
-  border-radius: 10px;
+.profile-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-card span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.profile-card strong {
+  color: #111827;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.profile-actions button {
+  background: #dc2626;
+}
+
+.profile-actions button:disabled {
+  cursor: not-allowed;
+  background: #9ca3af;
+}
+
+.button-link.secondary {
+  color: #111827;
+  background: #e5e7eb;
+}
+
+@media (max-width: 700px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
 }
