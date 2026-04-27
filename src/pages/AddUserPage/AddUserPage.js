@@ -14,7 +14,6 @@ function AddUserPage() {
       setSubmitting(true);
       setError("");
       await addUser(user);
-      // Redirect after save.
       navigate("/users");
     } catch (err) {
       setError(err.message || "Could not add user");
