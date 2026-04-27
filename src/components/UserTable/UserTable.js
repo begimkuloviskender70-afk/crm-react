@@ -12,6 +12,8 @@ function UserTable({ users }) {
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Age</th>
+            <th>City</th>
             <th>Phone</th>
             <th>Company</th>
           </tr>
@@ -25,6 +27,8 @@ function UserTable({ users }) {
                 {user.firstName} {user.lastName}
               </td>
               <td>{user.email}</td>
+              <td>{user.age}</td>
+              <td>{user.address?.city}</td>
               <td>{user.phone}</td>
               <td>{user.company?.name}</td>
             </tr>
