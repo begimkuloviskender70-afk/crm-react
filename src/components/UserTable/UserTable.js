@@ -1,32 +1,37 @@
 import "./UserTable.css";
-import { Link } from "react-router-dom";
+function UserTable({ users }) {
+  if (users.length === 0) {
+    return <p className="empty-message">No users found.</p>;
+  }
 
-function UserTable() {
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Имя</th>
-          <th>Email</th>
-          <th>Город</th>
-          <th>Действия</th>
-        </tr>
-      </thead>
+    <div className="table-wrapper">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Искендер</td>
-          <td>example@mail.com</td>
-          <td>Бишкек</td>
-          <td className="table-actions">
-            <Link to="/users/1">Профиль</Link>
-            <Link to="/edit/1">Редактировать</Link>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>
+                {user.firstName} {user.lastName}
+              </td>
+              <td>{user.email}</td>
+              <td>{user.phone}</td>
+              <td>{user.company?.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

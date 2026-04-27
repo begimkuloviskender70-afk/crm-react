@@ -1,5 +1,22 @@
-.search {
-  margin: 20px 0;
-  padding: 10px;
+.users-page {
   width: 100%;
+}
+
+.page-subtitle {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.status-message {
+  margin-top: 20px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.error-message {
+  color: #b91c1c;
+  background: #fef2f2;
+  border-color: #fecaca;
 }

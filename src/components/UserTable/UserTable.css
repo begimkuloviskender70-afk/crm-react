@@ -1,5 +1,11 @@
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .table {
   width: 100%;
+  min-width: 760px;
   background: white;
   border-collapse: collapse;
 }
@@ -8,14 +14,13 @@
 .table td {
   padding: 12px;
   border-bottom: 1px solid wheat;
+  text-align: left;
 }
 
-.table-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.table-actions a {
-  color: rgb(94, 94, 240);
-  font-weight: 500;
+.empty-message {
+  margin-top: 20px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
 }
