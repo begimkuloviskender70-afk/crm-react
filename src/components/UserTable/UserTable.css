@@ -1,0 +1,21 @@
+.table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid wheat;
+}
+
+.table-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.table-actions a {
+  color: rgb(94, 94, 240);
+  font-weight: 500;
+}

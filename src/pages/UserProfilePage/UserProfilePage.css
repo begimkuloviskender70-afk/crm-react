@@ -1,0 +1,15 @@
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 20px 0;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 10px 14px;
+  background: rgb(102, 102, 226);
+  color: white;
+  border-radius: 10px;
+}
