@@ -5,7 +5,7 @@
 
 .table {
   width: 100%;
-  min-width: 900px;
+  min-width: 1040px;
   background: white;
   border-collapse: collapse;
 }
@@ -23,4 +23,27 @@
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.table-actions a,
+.table-actions button {
+  padding: 8px 10px;
+  color: #ffffff;
+  background: #2563eb;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.table-actions button {
+  background: #dc2626;
 }

@@ -1,6 +1,8 @@
 import "./UsersPage.css";
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import UserTable from "../../components/UserTable/UserTable";
+import { deleteUser, getUsers } from "../../services/usersApi";
 
 function UsersPage() {
   const [users, setUsers] = useState([]);
@@ -25,14 +27,8 @@ function UsersPage() {
         setLoading(true);
         setError("");
 
-        const response = await fetch("https://dummyjson.com/users");
-
-        if (!response.ok) {
-          throw new Error("Could not load users");
-        }
-
-        const data = await response.json();
-        setUsers(data.users || []);
+        const loadedUsers = await getUsers();
+        setUsers(loadedUsers);
       } catch (err) {
         setError(err.message || "Something went wrong");
       } finally {
@@ -90,6 +86,23 @@ function UsersPage() {
     setAgeFilter("");
   }
 
+  async function handleDeleteUser(userId) {
+    const shouldDelete = window.confirm("Delete this user?");
+
+    if (!shouldDelete) {
+      return;
+    }
+
+    try {
+      await deleteUser(userId);
+      setUsers((currentUsers) =>
+        currentUsers.filter((user) => user.id !== userId)
+      );
+    } catch (err) {
+      window.alert(err.message || "Could not delete user");
+    }
+  }
+
   return (
     <div className="users-page">
       <div className="page-header">
@@ -97,6 +110,10 @@ function UsersPage() {
           <h2>Users</h2>
           <p className="page-subtitle">User list loaded from DummyJSON API</p>
         </div>
+
+        <Link className="button-link" to="/add">
+          Add user
+        </Link>
       </div>
 
       {loading && <p className="status-message">Loading users...</p>}
@@ -158,7 +175,7 @@ function UsersPage() {
             Showing {filteredUsers.length} of {users.length} users
           </div>
 
-          <UserTable users={filteredUsers} />
+          <UserTable users={filteredUsers} onDeleteUser={handleDeleteUser} />
         </>
       )}
     </div>

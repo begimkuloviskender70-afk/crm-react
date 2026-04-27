@@ -1,5 +1,7 @@
 import "./UserTable.css";
-function UserTable({ users }) {
+import { Link } from "react-router-dom";
+
+function UserTable({ users, onDeleteUser }) {
   if (users.length === 0) {
     return <p className="empty-message">No users found.</p>;
   }
@@ -16,6 +18,7 @@ function UserTable({ users }) {
             <th>City</th>
             <th>Phone</th>
             <th>Company</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -31,6 +34,15 @@ function UserTable({ users }) {
               <td>{user.address?.city}</td>
               <td>{user.phone}</td>
               <td>{user.company?.name}</td>
+              <td>
+                <div className="table-actions">
+                  <Link to={`/users/${user.id}`}>View</Link>
+                  <Link to={`/edit/${user.id}`}>Edit</Link>
+                  <button type="button" onClick={() => onDeleteUser(user.id)}>
+                    Delete
+                  </button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>

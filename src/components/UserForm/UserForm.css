@@ -1,16 +1,47 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
+  gap: 14px;
+  max-width: 520px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form label span {
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .form input {
-  padding: 10px;
+  padding: 12px;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
 }
 
-button {
-  padding: 10px;
-  background: rgb(68, 68, 255);
-  color: white;
+.form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+.form small,
+.form-error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+.form button {
+  align-self: flex-start;
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+  background: #9ca3af;
 }
